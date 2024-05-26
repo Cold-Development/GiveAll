@@ -1,0 +1,10 @@
+# Default configuration file for the GiveAll plugin
+
+messages:
+  tag: "§8「§cGiveAll§8」§7»§f "
+  no_permission: "§cYou don't have permissions to use /giveall!"
+  only_players: "§cSorry! Only players can use /giveall!"
+  no_item_in_hand: "§fYou must hold an item in hand in order to use this command."
+  give_message: "§c{player} §fhas given everyone §c{item}§f!"
+  item_given: "§fYou successfully gave §c{item} §fto all §aonline §fplayers."
+  config_reloaded: "§fConfiguration reloaded §asuccessfully§f."

@@ -1,0 +1,20 @@
+name: GiveAll
+main: org.padrewin.giveall.GiveAll
+version: v1.0
+author: padrewin
+api-version: 1.20
+commands:
+  giveall:
+    description: Give all players the item in your hand or manage the plugin.
+    usage: /<command> [reload|version]
+    permission: giveall.use
+permissions:
+  giveall.use:
+    description: Allows the player to use the /giveall command.
+    default: op
+  giveall.reload:
+    description: Allows the player to reload the plugin configuration.
+    default: op
+  giveall.version:
+    description: Allows the player to view the plugin version information.
+    default: op
