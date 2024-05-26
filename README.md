@@ -37,7 +37,7 @@ messages:
 
 Permissions **plugin.yml** file:
 
-```
+```yaml
 permissions:
   giveall.use:
     description: Allows the player to use the /giveall command.
