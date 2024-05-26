@@ -1,6 +1,7 @@
 # GiveAll
 
 ● A **Minecraft** plugin that allows you to give to all online players **an item** you're holding in your main hand.
+
 ● Current version: **v1.0** 
 
 Configuration **config.yml** file:
