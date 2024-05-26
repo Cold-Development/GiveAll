@@ -35,6 +35,21 @@ messages:
   config_reloaded: "§fConfiguration reloaded §asuccessfully§f."
 ```
 
+Permissions **plugin.yml** file:
+
+```
+permissions:
+  giveall.use:
+    description: Allows the player to use the /giveall command.
+    default: op
+  giveall.reload:
+    description: Allows the player to reload the plugin configuration.
+    default: op
+  giveall.version:
+    description: Allows the player to view the plugin version information.
+    default: op
+```
+
 ● This **plugin** supports at the moment only default minecraft color codes which requires the **"§"** symbol. 
 
 ![alt text](giveallplugin.png)
