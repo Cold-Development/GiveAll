@@ -6,7 +6,7 @@
 
 Configuration **config.yml** file:
 - Here you can mainly configurate messages displayed within the plugin that will be shown for yourself / to players.
-```
+```yaml
 # Default configuration file for the GiveAll plugin
 
 messages:
