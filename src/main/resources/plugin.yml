@@ -1,6 +1,6 @@
 name: GiveAll
 main: org.padrewin.giveall.GiveAll
-version: v1.0
+version: v2.0
 author: padrewin
 api-version: 1.20
 commands:
