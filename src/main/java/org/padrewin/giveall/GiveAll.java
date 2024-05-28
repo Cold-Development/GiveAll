@@ -47,9 +47,9 @@ public final class GiveAll extends JavaPlugin {
                     commandSender.sendMessage(applyColors(getTag() + getConfig().getString("messages.no_permission")));
                     return true;
                 }
-                String versionMessage = applyColors(getTag() + "&7Version: §a" + getDescription().getVersion());
-                String authorMessage = applyColors(getTag() + "&7Developer: §cpadrewin");
-                String githubMessage = applyColors(getTag() + "&7GitHub: §bhttps://github.com/padrewin/giveall");
+                String versionMessage = applyColors(getTag() + "&7Version: &a" + getDescription().getVersion());
+                String authorMessage = applyColors(getTag() + "&7Developer: &c" + getDescription().getAuthor());
+                String githubMessage = applyColors(getTag() + "&7GitHub: &bhttps://github.com/padrewin/giveall");
 
                 commandSender.sendMessage(versionMessage);
                 commandSender.sendMessage(authorMessage);
