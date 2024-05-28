@@ -48,7 +48,7 @@ public final class GiveAll extends JavaPlugin {
                     return true;
                 }
                 String versionMessage = applyColors(getTag() + "&7Version: &a" + getDescription().getVersion());
-                String authorMessage = applyColors(getTag() + "&7Developer: &c" + getDescription().getAuthor());
+                String authorMessage = applyColors(getTag() + "&7Developer: &c" + String.join(", ", getDescription().getAuthors()));
                 String githubMessage = applyColors(getTag() + "&7GitHub: &bhttps://github.com/padrewin/giveall");
 
                 commandSender.sendMessage(versionMessage);
@@ -111,11 +111,16 @@ public final class GiveAll extends JavaPlugin {
     }
 
     private String getTag() {
-        return applyColors(getConfig().getString("messages.tag", "§8「§cGiveAll§8」§7»§f"));
+        return applyColors(getConfig().getString("messages.tag", "&8「&cGiveAll&8」&7»&f"));
     }
 
-    // Utility method to apply both & and § color codes
+
     private String applyColors(String message) {
-        return ChatColor.translateAlternateColorCodes('&', ChatColor.translateAlternateColorCodes('§', message));
+
+        message = message.replaceAll("(?i)&(#[a-f0-9]{6})", "§$1");
+
+        message = ChatColor.translateAlternateColorCodes('&', message);
+
+        return message;
     }
 }
