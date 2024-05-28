@@ -1,13 +1,14 @@
 package org.padrewin.giveall;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -33,32 +34,36 @@ public final class GiveAll extends JavaPlugin {
         if (args.length > 0) {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (!commandSender.hasPermission("giveall.reload")) {
-                    commandSender.sendMessage(getTag() + getConfig().getString("messages.no_permission"));
+                    commandSender.sendMessage(applyColors(getTag() + getConfig().getString("messages.no_permission")));
                     return true;
                 }
                 reloadConfig();
-                commandSender.sendMessage(getTag() + getConfig().getString("messages.config_reloaded"));
+                commandSender.sendMessage(applyColors(getTag() + getConfig().getString("messages.config_reloaded")));
                 return true;
             }
 
             if (args[0].equalsIgnoreCase("version")) {
                 if (!commandSender.hasPermission("giveall.version")) {
-                    commandSender.sendMessage(getTag() + getConfig().getString("messages.no_permission"));
+                    commandSender.sendMessage(applyColors(getTag() + getConfig().getString("messages.no_permission")));
                     return true;
                 }
-                commandSender.sendMessage(getTag() + "§7Version: §a" + getDescription().getVersion());
-                commandSender.sendMessage(getTag() + "§7Author: §cpadrewin");
-                commandSender.sendMessage(getTag() + "§7GitHub: §bhttps://github.com/padrewin/giveall");
+                String versionMessage = applyColors(getTag() + "Version: " + getDescription().getVersion());
+                String authorMessage = applyColors(getTag() + "Author: padrewin");
+                String githubMessage = applyColors(getTag() + "GitHub: https://github.com/padrewin/giveall");
+
+                commandSender.sendMessage(versionMessage);
+                commandSender.sendMessage(authorMessage);
+                commandSender.sendMessage(githubMessage);
                 return true;
             }
         }
 
         if (!commandSender.hasPermission("giveall.use")) {
-            commandSender.sendMessage(getTag() + getConfig().getString("messages.no_permission"));
+            commandSender.sendMessage(applyColors(getTag() + getConfig().getString("messages.no_permission")));
             return true;
         }
         if (!(commandSender instanceof Player)) {
-            commandSender.sendMessage(getTag() + getConfig().getString("messages.only_players"));
+            commandSender.sendMessage(applyColors(getTag() + getConfig().getString("messages.only_players")));
             return true;
         }
 
@@ -68,7 +73,7 @@ public final class GiveAll extends JavaPlugin {
 
         // Check if the player is holding an item
         if (itemInHand.getType() == Material.AIR) {
-            senderPlayer.sendMessage(getTag() + getConfig().getString("messages.no_item_in_hand"));
+            senderPlayer.sendMessage(applyColors(getTag() + getConfig().getString("messages.no_item_in_hand")));
             return true;
         }
 
@@ -86,13 +91,13 @@ public final class GiveAll extends JavaPlugin {
                 String giveMessage = Objects.requireNonNull(getConfig().getString("messages.give_message"))
                         .replace("{item}", itemName)
                         .replace("{player}", senderName);
-                player.sendMessage(getTag() + giveMessage);
+                player.sendMessage(applyColors(getTag() + giveMessage));
             }
         }
 
         String itemGivenMessage = Objects.requireNonNull(getConfig().getString("messages.item_given"))
                 .replace("{item}", itemName);
-        senderPlayer.sendMessage(getTag() + itemGivenMessage);
+        senderPlayer.sendMessage(applyColors(getTag() + itemGivenMessage));
 
         return true;
     }
@@ -106,6 +111,11 @@ public final class GiveAll extends JavaPlugin {
     }
 
     private String getTag() {
-        return getConfig().getString("messages.tag", "§8「§cGiveAll§8」§7»§f");
+        return applyColors(getConfig().getString("messages.tag", "§8「§cGiveAll§8」§7»§f"));
+    }
+
+    // Utility method to apply both & and § color codes
+    private String applyColors(String message) {
+        return ChatColor.translateAlternateColorCodes('&', ChatColor.translateAlternateColorCodes('§', message));
     }
 }
