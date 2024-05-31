@@ -2,7 +2,7 @@
 
 messages:
   # Tag prefix that will be added to the beginning of all plugin messages
-  tag: "&8「&cGiveAll&8」&7»&f "
+  tag: "&8「&#CB2D3EG&#D1313Di&#D7363Dv&#DD3A3Ce&#E33E3BA&#E9433Bl&#EF473Al&8」&7»&f "
 
   # Message displayed when a player does not have permission to use the /giveall command
   no_permission: "&cYou don't have permissions to use /giveall!"
