@@ -2,7 +2,7 @@
 
 ● A **Minecraft** plugin that allows you to give to all online players **an item** you're holding in your main hand.
 
-● Current version: **v2.0** 
+● Current version: **v2.0**
 
 Configuration **config.yml** file:
 - Here you can mainly configurate messages displayed within the plugin that will be shown for yourself / to players.
