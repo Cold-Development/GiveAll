@@ -50,7 +50,7 @@ permissions:
     default: op
 ```
 
-● This **plugin** is now updated to v2.0 in order to be able to use HEX color codes. 
+● This **plugin** is now updated to v2.0 in order to be able to use HEX color codes.
 
 ![alt text](giveallplugin.png)
 ![alt text](giveallversion.png)
