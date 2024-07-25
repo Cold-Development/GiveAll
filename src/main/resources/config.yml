@@ -24,3 +24,4 @@ messages:
 
   # Message displayed when the configuration file is reloaded successfully using /giveall reload
   config_reloaded: "&fConfiguration reloaded &asuccessfully&f."
+  
