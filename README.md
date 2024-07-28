@@ -2,9 +2,9 @@
 
 ● A **Minecraft** plugin that allows you to give to all online players **an item** you're holding in your main hand.
 
-● Current version: **v2.0**
+![Static Badge](https://img.shields.io/badge/Version-v2.0-brightgreen?logo=files&logoColor=ffffff&color=799aca)
 
-Configuration **config.yml** file:
+![Static Badge](https://img.shields.io/badge/config.yml-brightgreen)
 - Here you can mainly configurate messages displayed within the plugin that will be shown for yourself / to players.
 ```yaml
 # Default configuration file for the GiveAll plugin
@@ -35,7 +35,7 @@ messages:
   config_reloaded: "&fConfiguration reloaded &asuccessfully&f."
 ```
 
-Permissions **plugin.yml** file:
+![Static Badge](https://img.shields.io/badge/Permissions-config.yml-orange)
 
 ```yaml
 permissions:
