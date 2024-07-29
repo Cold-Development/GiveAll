@@ -17,8 +17,19 @@ public final class GiveAll extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        getLogger().info("Plugin loaded.");
+
+        String name = getDescription().getName();
+        getLogger().info("");
+        getLogger().info("  ____ ___  _     ____  ");
+        getLogger().info(" / ___/ _ \\| |   |  _ \\ ");
+        getLogger().info("| |  | | | | |   | | | |");
+        getLogger().info("| |__| |_| | |___| |_| |");
+        getLogger().info(" \\____\\___/|_____|____/");
+        getLogger().info("    " + name + " v" + getDescription().getVersion());
+        getLogger().info("    Author(s): " + (String)getDescription().getAuthors().get(0));
+        getLogger().info("    (c) Cold Development. All rights reserved.");
+        getLogger().info("");
+
         saveDefaultConfig();
         getCommand("giveall").setExecutor(this);
     }
