@@ -35,7 +35,7 @@ messages:
   config_reloaded: "&fConfiguration reloaded &asuccessfully&f."
 ```
 
-![Static Badge](https://img.shields.io/badge/Permissions-config.yml-orange)
+![Static Badge](https://img.shields.io/badge/Permissions-plugin.yml-orange?color=orange)
 
 ```yaml
 permissions:
