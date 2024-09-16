@@ -1,6 +1,7 @@
 name: GiveAll
 main: org.padrewin.giveall.GiveAll
-version: 2.0
+version: '@version@'
+website: 'https://github.com/Cold-Development/GiveAll'
 author: padrewin
 api-version: 1.20
 commands:

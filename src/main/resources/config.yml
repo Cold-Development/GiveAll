@@ -1,4 +1,10 @@
-# Default configuration file for the GiveAll plugin
+#########################################################################################################
+#    Plugin now supports full hex color codes.                                                          #
+#    You can use https://www.birdflop.com/resources/rgb/ to create your colors                          #
+#    Developer; padrewin || Cold Development                                                            #
+#    GitHub; https://github.com/padrewin || https://github.com/Cold-Development                         #
+#    Links: https://colddev.dev || https://discord.colddev.dev                                          #
+#########################################################################################################
 
 messages:
   # Tag prefix that will be added to the beginning of all plugin messages

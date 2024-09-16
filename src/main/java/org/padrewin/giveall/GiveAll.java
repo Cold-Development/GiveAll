@@ -1,5 +1,8 @@
 package org.padrewin.giveall;
 
+import dev.padrewin.coldplugin.ColdPlugin;
+import dev.padrewin.coldplugin.manager.Manager;
+import dev.padrewin.coldplugin.manager.PluginUpdateManager;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -8,15 +11,25 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
-public final class GiveAll extends JavaPlugin {
+public final class GiveAll extends ColdPlugin {
+
+    private static GiveAll instance;
+
+    public GiveAll() {
+        super("Cold-Development", "GiveAll", 23387, null, null, null);
+        instance = this;
+    }
 
     @Override
-    public void onEnable() {
+    public void enable() {
+        instance = this;
+        getManager(PluginUpdateManager.class);
 
         String name = getDescription().getName();
         getLogger().info("");
@@ -35,9 +48,13 @@ public final class GiveAll extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    public void disable() {
         getLogger().info("Plugin unloaded.");
+    }
+
+    @Override
+    protected @NotNull List<Class<? extends Manager>> getManagerLoadPriority() {
+        return List.of();
     }
 
     @Override
