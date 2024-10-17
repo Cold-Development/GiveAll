@@ -42,7 +42,7 @@
                             <minimizeJar>true</minimizeJar>
                             <relocations>
                                 <relocation>
-                                    <pattern>dev.padrewin.coldplugin</pattern>
+                                    <pattern>dev.padrewin.colddev</pattern>
                                     <shadedPattern>dev.padrewin.giveall.libs.coldplugin</shadedPattern>
                                 </relocation>
                             </relocations>
@@ -81,8 +81,8 @@
 
         <dependency>
             <groupId>dev.padrewin</groupId>
-            <artifactId>coldplugin</artifactId>
-            <version>1.4</version>
+            <artifactId>colddev</artifactId>
+            <version>1.4.1</version>
             <scope>compile</scope>
         </dependency>
 

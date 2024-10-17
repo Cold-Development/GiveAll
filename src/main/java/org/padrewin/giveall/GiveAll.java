@@ -1,8 +1,8 @@
 package org.padrewin.giveall;
 
-import dev.padrewin.coldplugin.ColdPlugin;
-import dev.padrewin.coldplugin.manager.Manager;
-import dev.padrewin.coldplugin.manager.PluginUpdateManager;
+import dev.padrewin.colddev.ColdPlugin;
+import dev.padrewin.colddev.manager.Manager;
+import dev.padrewin.colddev.manager.PluginUpdateManager;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
