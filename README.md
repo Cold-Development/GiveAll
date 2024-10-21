@@ -2,7 +2,8 @@
 
 ● A **Minecraft** plugin that allows you to give to all online players **an item** you're holding in your main hand.
 
-![Static Badge](https://img.shields.io/badge/Version-v2.0-brightgreen?logo=files&logoColor=ffffff&color=799aca)
+[![Latest Release](https://img.shields.io/github/v/release/Cold-Development/GiveAll?display_name=release&logo=files&logoColor=white&color=635aa7)](https://github.com/Cold-Development/GiveAll/releases)
+
 
 ![Static Badge](https://img.shields.io/badge/config.yml-brightgreen)
 - Here you can mainly configurate messages displayed within the plugin that will be shown for yourself / to players.
