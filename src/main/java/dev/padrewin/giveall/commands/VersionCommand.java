@@ -45,7 +45,7 @@ public class VersionCommand extends BaseCommand {
 
             TextComponent baseMessage = new TextComponent(baseColor + "GitHub: ");
             TextComponent clickableText = new TextComponent(ChatColor.RED + "" + ChatColor.UNDERLINE + "click here");
-            clickableText.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Cold-Development/ColdBits"));
+            clickableText.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Cold-Development/GiveAll"));
             baseMessage.addExtra(clickableText);
 
             player.spigot().sendMessage(baseMessage);
@@ -55,9 +55,10 @@ public class VersionCommand extends BaseCommand {
             String ansiReset = "\u001B[0m";
             String ansiAqua = "\u001B[36m";
 
-            sender.sendMessage(ansiAqua + "GitHub: " + ansiRed + "https://github.com/Cold-Development/ColdBits" + ansiReset);
+            sender.sendMessage(ansiAqua + "GitHub: " + ansiRed + "https://github.com/Cold-Development/GiveAll" + ansiReset);
         }
 
+        localeManager.sendSimpleMessage(sender, "base-command-help");
         localeManager.sendCustomMessage(sender, baseColor + "");
     }
 

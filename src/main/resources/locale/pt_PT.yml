@@ -1,0 +1,37 @@
+# #######################################################################################################
+#    Developer; padrewin || Cold Development                                                            #
+#    GitHub; https://github.com/padrewin || https://github.com/Cold-Development                         #
+#    Links: https://colddev.dev || https://discord.colddev.dev                                          #
+# #######################################################################################################
+
+# Plugin Message Prefix
+prefix: '&8「&#635AA7G&#8F83C2i&#BAABDDv&#E6D4F8e&#CEA5F7A&#B677F7l&#9E48F6l&8」&7» '
+
+# Help Command
+command-help-description: '&8 - &c/giveall help &7- Exibe o menu de ajuda... Você chegou'
+command-help-title: '&cComandos disponíveis:'
+
+# Base Command Message
+base-command-color: '&7'
+base-command-help: '&7Use &c/giveall help &7para obter informações sobre os comandos.'
+
+# Misc
+unknown-command: '&cComando desconhecido &4%input%&c.'
+no-permission: '&cVocê não tem permissão para isso!'
+only-players: '&cDesculpe! Apenas jogadores podem usar este comando!'
+invalid-command: '&cUso incorreto do comando.'
+no-item-in-hand: '&7Você deve segurar um item na mão para usar este comando.'
+give-message: '&c{player} &7deu a todos &c{item}&7!'
+item-given: '&7Você deu com sucesso &c{item} &7a todos os jogadores &aonline&7.'
+
+# Give Command Message
+command-give-description: '&8 - &c/giveall give &7- Dá o item segurado a todos os jogadores online'
+command-give-usage: '&7Uso: &c/giveall give'
+
+# Reload Command
+command-reload-description: '&8 - &c/giveall reload &7- Recarrega o plugin'
+command-reload-usage: '&7Uso: &c/giveall reload'
+command-reload-success: '&7Os ficheiros de configuração e de idioma foram recarregados.'
+
+# Version Command
+command-version-description: '&8 - &c/giveall version &7- Exibe as informações da versão para o GiveAll'

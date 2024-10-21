@@ -1,40 +1,37 @@
 # #######################################################################################################
-#    Plugin now supports full hex color codes.                                                          #
-#    You can use https://www.birdflop.com/resources/rgb/ to create your colors                          #
 #    Developer; padrewin || Cold Development                                                            #
 #    GitHub; https://github.com/padrewin || https://github.com/Cold-Development                         #
 #    Links: https://colddev.dev || https://discord.colddev.dev                                          #
 # #######################################################################################################
 
 # Plugin Message Prefix
-prefix: '&8「&#CB2D3EG&#D1313Di&#D7363Dv&#DD3A3Ce&#E33E3BA&#E9433Bl&#EF473Al&8」&7»&f '
+prefix: '&8「&#635AA7G&#8F83C2i&#BAABDDv&#E6D4F8e&#CEA5F7A&#B677F7l&#9E48F6l&8」&7» '
+
+# Help Command
+command-help-description: '&8 - &c/giveall help &7- Displays the help menu... You have arrived'
+command-help-title: '&cAvailable Commands:'
 
 # Base Command Message
 base-command-color: '&7'
+base-command-help: '&7Use &c/giveall help &7for command information.'
 
 # Misc
 unknown-command: '&cUnknown command &4%input%&c.'
-
-# Message displayed when a player does not have permission to use the /giveall command
 no-permission: '&cYou don''t have permissions for that!'
-
-# Message displayed when a non-player entity tries to use the /giveall command
 only-players: '&cSorry! Only players can use this command!'
-
-# Message displayed when a player tries to use /giveall without holding an item
-no-item-in-hand: '&fYou must hold an item in hand in order to use this command.'
-
-# Message sent to all players when the /giveall command is used successfully
-# {player} will be replaced by the name of the player who used the command
-# {item} will be replaced by the name of the item given
-give-message: '&c{player} &fhas given everyone &c{item}&f!'
-
-# Message displayed to the player who used the /giveall command to confirm the item was given
-# {item} will be replaced by the name of the item given
-item-given: '&fYou successfully gave &c{item} &fto all &aonline &fplayers.'
-
-# Message displayed when the configuration file is reloaded successfully using /giveall reload
-config-reloaded: '&fConfiguration reloaded &asuccessfully&f.'
-
-# Messaage displayed when the player used an invalid command.
 invalid-command: '&cInvalid command usage.'
+no-item-in-hand: '&7You must hold an item in hand in order to use this command.'
+give-message: '&c{player} &7has given everyone &c{item}&7!'
+item-given: '&7You successfully gave &c{item} &7to all &aonline &7players.'
+
+# Give Command Message
+command-give-description: '&8 - &c/giveall give &7- Give the item held to all online players'
+command-give-usage: '&7Usage: &c/giveall give'
+
+# Reload Command
+command-reload-description: '&8 - &c/giveall reload &7- Reloads the plugin'
+command-reload-usage: '&7Usage: &c/giveall reload'
+command-reload-success: '&7Configuration and locale files were reloaded.'
+
+# Version Command
+command-version-description: '&8 - &c/giveall version &7- Display the version info for GiveAll'

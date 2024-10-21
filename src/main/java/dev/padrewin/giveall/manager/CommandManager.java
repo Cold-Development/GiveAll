@@ -23,6 +23,7 @@ public class CommandManager extends Manager {
         },
         GIVE,
         RELOAD,
+        HELP,
         VERSION;
 
         private List<String> aliases;
@@ -65,7 +66,7 @@ public class CommandManager extends Manager {
 
         // Register commands
         Commander commander = new Commander((GiveAll) this.coldPlugin);
-        PluginCommand command = this.coldPlugin.getCommand("coldtracker");
+        PluginCommand command = this.coldPlugin.getCommand("giveall");
         if (command != null)
             command.setExecutor(commander);
     }

@@ -1,0 +1,37 @@
+# #######################################################################################################
+#    Developer; padrewin || Cold Development                                                            #
+#    GitHub; https://github.com/padrewin || https://github.com/Cold-Development                         #
+#    Links: https://colddev.dev || https://discord.colddev.dev                                          #
+# #######################################################################################################
+
+# Plugin Message Prefix
+prefix: '&8「&#635AA7G&#8F83C2i&#BAABDDv&#E6D4F8e&#CEA5F7A&#B677F7l&#9E48F6l&8」&7» '
+
+# Help Command
+command-help-description: '&8 - &c/giveall help &7- Afișează meniul de ajutor... Ai ajuns'
+command-help-title: '&cComenzi disponibile:'
+
+# Base Command Message
+base-command-color: '&7'
+base-command-help: '&7Folosește &c/giveall help &7pentru informații despre comenzi.'
+
+# Misc
+unknown-command: '&cComandă necunoscută &4%input%&c.'
+no-permission: '&cNu ai permisiunea pentru asta!'
+only-players: '&cNe pare rău! Doar jucătorii pot folosi această comandă!'
+invalid-command: '&cUtilizare greșită a comenzii.'
+no-item-in-hand: '&7Trebuie să ții un obiect în mână pentru a folosi această comandă.'
+give-message: '&c{player} &7a dat tuturor &c{item}&7!'
+item-given: '&7Ai dat cu succes &c{item} &7tuturor jucătorilor &aonline&7.'
+
+# Give Command Message
+command-give-description: '&8 - &c/giveall give &7- Dă obiectul ținut tuturor jucătorilor online'
+command-give-usage: '&7Utilizare: &c/giveall give'
+
+# Reload Command
+command-reload-description: '&8 - &c/giveall reload &7- Reîncarcă pluginul'
+command-reload-usage: '&7Utilizare: &c/giveall reload'
+command-reload-success: '&7Fișierele de configurare și localizare au fost reîncărcate.'
+
+# Version Command
+command-version-description: '&8 - &c/giveall version &7- Afișează informațiile despre versiunea GiveAll'

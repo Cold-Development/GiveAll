@@ -18,6 +18,7 @@ public class Commander extends CommandHandler {
         super(plugin, "giveall", CommandManager.CommandAliases.ROOT);
 
         // Register commands.
+        this.registerCommand(new HelpCommand(this));
         this.registerCommand(new GiveCommand());
         this.registerCommand(new ReloadCommand());
         this.registerCommand(new VersionCommand());
