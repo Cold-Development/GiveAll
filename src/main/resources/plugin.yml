@@ -1,21 +1,26 @@
 name: GiveAll
-main: org.padrewin.giveall.GiveAll
+main: dev.padrewin.giveall.GiveAll
 version: '@version@'
 website: 'https://github.com/Cold-Development/GiveAll'
 author: padrewin
 api-version: 1.20
 commands:
   giveall:
-    description: Give all players the item in your hand or manage the plugin.
-    usage: /<command> [reload|version]
-    permission: giveall.use
+    aliases: [coldgiveall, coldgive]
+    description: Main command for GiveAll.
 permissions:
+  giveall.*:
+    description: Gives access to all GiveAll commands
+    children:
+      giveall.use: true
+      giveall.reload: true
+      giveall.version: true
   giveall.use:
-    description: Allows the player to use the /giveall command.
+    description: Permission to use `/giveall give` to give items to all players
     default: op
   giveall.reload:
-    description: Allows the player to reload the plugin configuration.
+    description: Permission to use `/giveall reload` to reload configuration
     default: op
   giveall.version:
-    description: Allows the player to view the plugin version information.
+    description: Permission to use `/giveall version` to see plugin's information
     default: op
