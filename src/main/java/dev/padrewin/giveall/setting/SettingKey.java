@@ -15,6 +15,14 @@ public class SettingKey {
 
     public static final ColdSetting<String> BASE_COMMAND_REDIRECT = create("base-command-redirect", STRING, "", "Which command should we redirect to when using '/giveall' with no subcommand specified?", "You can use a value here such as 'version' to show the output of '/giveall version'", "If you have any aliases defined, do not use them here", "If left as blank, the default behavior of showing '/giveall version' with bypassed permissions will be used");
 
+    public static final ColdSetting<Boolean> ANTI_FRAUD_SYSTEM = create(
+            "anti-fraud-system",
+            BOOLEAN,
+            true,
+            "If enabled, players sharing the same IP will receive the GiveAll only on the first connected account.",
+            "If disabled, all accounts will receive the item regardless of IP."
+    );
+
     private static <T> ColdSetting<T> create(String key, ColdSettingSerializer<T> serializer, T defaultValue, String... comments) {
         ColdSetting<T> setting = ColdSetting.backed(GiveAll.getInstance(), key, serializer, defaultValue, comments);
         KEYS.add(setting);
