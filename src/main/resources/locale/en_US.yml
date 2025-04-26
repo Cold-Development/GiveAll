@@ -21,12 +21,22 @@ no-permission: '&cYou don''t have permissions for that!'
 only-players: '&cSorry! Only players can use this command!'
 invalid-command: '&cInvalid command usage.'
 no-item-in-hand: '&7You must hold an item in hand in order to use this command.'
-give-message: '&c{player} &7has given everyone &c{item}&7!'
-item-given: '&7You successfully gave &c{item} &7to all &aonline &7players.'
+give-message: '&c%player% &7has given everyone &c%item%&7!'
+item-given: '&7You successfully gave &c%item% &7to all &aonline &7players.'
 
 # Give Command Message
 command-give-description: '&8 - &c/giveall give &7- Give the item held to all online players'
 command-give-usage: '&7Usage: &c/giveall give'
+already-received-item: '&cYou did not receive the item because another account on your IP (&e%player%&c) already received it!'
+
+# Console Logs
+console-giveall-execute-timer-fast: '&7GiveAll executed in &a%time%ms&7.'
+console-giveall-execute-timer-medium: '&7GiveAll executed in &6%time%ms&7.'
+console-giveall-execute-timer-slow: '&7GiveAll executed in &c%time%ms&7.'
+console-giveall-long-warning: '&c⚠️ GiveAll execution took unusually long: %time%ms!'
+
+# Info Command
+command-info-description: '&8 - &c/giveall info &7- Displays plugin information like hooks and anti-fraud status.'
 
 # Reload Command
 command-reload-description: '&8 - &c/giveall reload &7- Reloads the plugin'
