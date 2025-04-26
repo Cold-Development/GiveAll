@@ -8,30 +8,40 @@
 prefix: '&8「&#635AA7G&#8F83C2i&#BAABDDv&#E6D4F8e&#CEA5F7A&#B677F7l&#9E48F6l&8」&7» '
 
 # Help Command
-command-help-description: '&8 - &c/giveall help &7- Afișează meniul de ajutor... Ai ajuns'
+command-help-description: '&8 - &c/giveall help &7- Afiseaza meniul de ajutor... Ai ajuns'
 command-help-title: '&cComenzi disponibile:'
 
 # Base Command Message
 base-command-color: '&7'
-base-command-help: '&7Folosește &c/giveall help &7pentru informații despre comenzi.'
+base-command-help: '&7Foloseste &c/giveall help &7pentru informatii despre comenzi.'
 
 # Misc
-unknown-command: '&cComandă necunoscută &4%input%&c.'
-no-permission: '&cNu ai permisiunea pentru asta!'
-only-players: '&cNe pare rău! Doar jucătorii pot folosi această comandă!'
-invalid-command: '&cUtilizare greșită a comenzii.'
-no-item-in-hand: '&7Trebuie să ții un obiect în mână pentru a folosi această comandă.'
-give-message: '&c{player} &7a dat tuturor &c{item}&7!'
-item-given: '&7Ai dat cu succes &c{item} &7tuturor jucătorilor &aonline&7.'
+unknown-command: '&cComanda necunoscuta &4%input%&c.'
+no-permission: '&cNu ai permisiunea pentru aceasta actiune!'
+only-players: '&cDoar jucatorii pot folosi aceasta comanda!'
+invalid-command: '&cUtilizare gresita a comenzii.'
+no-item-in-hand: '&7Trebuie sa tii un obiect in mana pentru a folosi aceasta comanda.'
+give-message: '&c%player% &7a oferit tuturor &c%item%&7!'
+item-given: '&7Ai oferit cu succes &c%item% &7tuturor jucatorilor &aonline&7.'
 
 # Give Command Message
-command-give-description: '&8 - &c/giveall give &7- Dă obiectul ținut tuturor jucătorilor online'
+command-give-description: '&8 - &c/giveall give &7- Da obiectul tinut tuturor jucatorilor online'
 command-give-usage: '&7Utilizare: &c/giveall give'
+already-received-item: '&cNu ai primit obiectul deoarece alt cont de pe IP-ul tau (&e%player%&c) l-a primit deja!'
+
+# Console Logs
+console-giveall-execute-timer-fast: '&7GiveAll executat in &a%time%ms&7.'
+console-giveall-execute-timer-medium: '&7GiveAll executat in &6%time%ms&7.'
+console-giveall-execute-timer-slow: '&7GiveAll executat in &c%time%ms&7.'
+console-giveall-long-warning: '&c⚠️ GiveAll a durat neasteptat de mult: %time%ms!'
+
+# Info Command
+command-info-description: '&8 - &c/giveall info &7- Afiseaza informatii despre plugin, cum ar fi hook-urile si starea sistemului anti-frauda.'
 
 # Reload Command
-command-reload-description: '&8 - &c/giveall reload &7- Reîncarcă pluginul'
+command-reload-description: '&8 - &c/giveall reload &7- Reincarca pluginul'
 command-reload-usage: '&7Utilizare: &c/giveall reload'
-command-reload-success: '&7Fișierele de configurare și localizare au fost reîncărcate.'
+command-reload-success: '&7Configuratia si fisierele de localizare au fost reincarcate.'
 
 # Version Command
-command-version-description: '&8 - &c/giveall version &7- Afișează informațiile despre versiunea GiveAll'
+command-version-description: '&8 - &c/giveall version &7- Afiseaza informatiile despre versiunea GiveAll'
