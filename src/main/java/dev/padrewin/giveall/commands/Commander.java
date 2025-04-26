@@ -22,6 +22,7 @@ public class Commander extends CommandHandler {
         this.registerCommand(new GiveCommand());
         this.registerCommand(new ReloadCommand());
         this.registerCommand(new VersionCommand());
+        this.registerCommand(new InfoCommand());
     }
 
     @Override
