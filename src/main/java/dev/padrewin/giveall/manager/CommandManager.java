@@ -24,7 +24,8 @@ public class CommandManager extends Manager {
         GIVE,
         RELOAD,
         HELP,
-        VERSION;
+        VERSION,
+        INFO;
 
         private List<String> aliases;
 
