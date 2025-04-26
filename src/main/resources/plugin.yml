@@ -2,12 +2,15 @@ name: GiveAll
 main: dev.padrewin.giveall.GiveAll
 version: '@version@'
 website: 'https://github.com/Cold-Development/GiveAll'
-author: padrewin
+authors: [ padrewin ]
 api-version: 1.20
+softdepend: [PlaceholderAPI]
+
 commands:
   giveall:
     aliases: [coldgiveall, coldgive]
     description: Main command for GiveAll.
+
 permissions:
   giveall.*:
     description: Gives access to all GiveAll commands
@@ -15,12 +18,20 @@ permissions:
       giveall.use: true
       giveall.reload: true
       giveall.version: true
+      giveall.info: true
+
   giveall.use:
     description: Permission to use `/giveall give` to give items to all players
     default: op
+
   giveall.reload:
     description: Permission to use `/giveall reload` to reload configuration
     default: op
+
   giveall.version:
-    description: Permission to use `/giveall version` to see plugin's information
+    description: Permission to use `/giveall version` to see plugin's version, developer, website
+    default: true
+
+  giveall.info:
+    description: Permission to use '/giveall info' to see plugin's information
     default: op
