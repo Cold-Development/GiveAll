@@ -8,30 +8,40 @@
 prefix: '&8「&#635AA7G&#8F83C2i&#BAABDDv&#E6D4F8e&#CEA5F7A&#B677F7l&#9E48F6l&8」&7» '
 
 # Help Command
-command-help-description: '&8 - &c/giveall help &7- 显示帮助菜单... 你已到达'
-command-help-title: '&c可用命令:'
+command-help-description: '&8 - &c/giveall help &7- 顯示幫助菜單... 你到了'
+command-help-title: '&c可用指令:'
 
 # Base Command Message
 base-command-color: '&7'
-base-command-help: '&7使用 &c/giveall help &7获取命令信息.'
+base-command-help: '&7使用 &c/giveall help &7查看指令信息。'
 
 # Misc
-unknown-command: '&c未知命令 &4%input%&c.'
-no-permission: '&c你没有权限执行此操作!'
-only-players: '&c抱歉！只有玩家可以使用这个命令！'
-invalid-command: '&c命令使用错误.'
-no-item-in-hand: '&7你必须手持一个物品才能使用此命令.'
-give-message: '&c{player} &7给了所有人 &c{item}&7!'
-item-given: '&7你已成功给所有 &a在线 &7玩家 &c{item}&7.'
+unknown-command: '&c未知指令 &4%input%&c.'
+no-permission: '&c你沒有權限執行此操作!'
+only-players: '&c僅玩家可以使用此指令!'
+invalid-command: '&c指令用法錯誤。'
+no-item-in-hand: '&7你必須手持一個物品來使用此指令。'
+give-message: '&c%player% &7給予了所有人 &c%item%&7!'
+item-given: '&7你成功給予了 &c%item% &7給所有&a在線&7玩家。'
 
 # Give Command Message
-command-give-description: '&8 - &c/giveall give &7- 将手持的物品给予所有在线玩家'
+command-give-description: '&8 - &c/giveall give &7- 給所有在線玩家手持物品'
 command-give-usage: '&7用法: &c/giveall give'
+already-received-item: '&c由於你的IP下已有另一個帳號 (&e%player%&c) 已收到物品，你未能領取!'
+
+# Console Logs
+console-giveall-execute-timer-fast: '&7GiveAll 在 &a%time%毫秒&7內完成。'
+console-giveall-execute-timer-medium: '&7GiveAll 在 &6%time%毫秒&7內完成。'
+console-giveall-execute-timer-slow: '&7GiveAll 在 &c%time%毫秒&7內完成。'
+console-giveall-long-warning: '&c⚠️ GiveAll執行異常耗時: %time%毫秒!'
+
+# Info Command
+command-info-description: '&8 - &c/giveall info &7- 显示插件信息，如挂钩和防欺诈系统状态。'
 
 # Reload Command
-command-reload-description: '&8 - &c/giveall reload &7- 重新加载插件'
+command-reload-description: '&8 - &c/giveall reload &7- 重新加載插件'
 command-reload-usage: '&7用法: &c/giveall reload'
-command-reload-success: '&7配置文件和语言文件已重新加载.'
+command-reload-success: '&7配置文件和語言文件已重新加載。'
 
 # Version Command
-command-version-description: '&8 - &c/giveall version &7- 显示GiveAll的版本信息'
+command-version-description: '&8 - &c/giveall version &7- 顯示GiveAll版本信息'
