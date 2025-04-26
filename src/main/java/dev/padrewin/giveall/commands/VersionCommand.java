@@ -36,9 +36,9 @@ public class VersionCommand extends BaseCommand {
         localeManager.sendCustomMessage(sender, baseColor + "Running <g:#635AA7:#E6D4F8:#9E48F6>GiveAll" + baseColor + " v" + plugin.getDescription().getVersion());
 
         List<String> authors = plugin.getDescription().getAuthors();
-        String firstAuthor = authors.size() > 0 ? authors.get(0) : "padrewin";
+        String authorsFormatted = String.join(", ", authors);
 
-        localeManager.sendCustomMessage(sender, baseColor + "&7Developer: <g:#FF0000:#793434>" + firstAuthor);
+        localeManager.sendCustomMessage(sender, baseColor + "&7Developer(s): <g:#FF0000:#793434>" + authorsFormatted);
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
@@ -61,5 +61,6 @@ public class VersionCommand extends BaseCommand {
         localeManager.sendSimpleMessage(sender, "base-command-help");
         localeManager.sendCustomMessage(sender, baseColor + "");
     }
+
 
 }
