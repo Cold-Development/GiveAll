@@ -6,7 +6,7 @@
 
     <groupId>dev.padrewin</groupId>
     <artifactId>GiveAll</artifactId>
-    <version>2.6</version>
+    <version>2.7.0</version>
     <packaging>jar</packaging>
 
     <name>GiveAll</name>
@@ -60,9 +60,11 @@
     </build>
 
     <repositories>
+
+        <!-- Cold-Development Repo -->
         <repository>
-            <id>com.github.coldplugin</id>
-            <url>https://maven.pkg.github.com/Cold-Development/ColdDev</url>
+            <id>colddev-repo</id>
+            <url>https://repo.colddev.dev/</url>
         </repository>
 
         <repository>
@@ -75,14 +77,21 @@
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
 
+        <!-- Placeholder Repo -->
+        <repository>
+            <id>placeholderapi-repo</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+
     </repositories>
 
     <dependencies>
 
+        <!-- Cold-Development Dependency -->
         <dependency>
             <groupId>dev.padrewin</groupId>
             <artifactId>colddev</artifactId>
-            <version>1.4.1</version>
+            <version>1.4.9</version>
             <scope>compile</scope>
         </dependency>
 
@@ -90,6 +99,14 @@
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.20.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- PlaceholderAPI Dependency -->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.11.6</version>
             <scope>provided</scope>
         </dependency>
 
