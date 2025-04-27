@@ -5,6 +5,7 @@ import dev.padrewin.colddev.config.ColdSetting;
 import dev.padrewin.colddev.manager.Manager;
 import dev.padrewin.colddev.manager.PluginUpdateManager;
 import dev.padrewin.giveall.hook.GiveAllPlaceholderExpansion;
+import dev.padrewin.giveall.util.GiveAllLogger;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -23,17 +24,18 @@ public final class GiveAll extends ColdPlugin {
     /**
      * Console colors
      */
-    String ANSI_RESET = "\u001B[0m";
-    String ANSI_CHINESE_PURPLE = "\u001B[38;5;93m";
-    String ANSI_PURPLE = "\u001B[35m";
-    String ANSI_GREEN = "\u001B[32m";
-    String ANSI_RED = "\u001B[31m";
-    String ANSI_AQUA = "\u001B[36m";
-    String ANSI_PINK = "\u001B[35m";
-    String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_CHINESE_PURPLE = "\u001B[38;5;93m";
+    private static final String ANSI_PURPLE = "\u001B[35m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_AQUA = "\u001B[36m";
+    private static final String ANSI_PINK = "\u001B[35m";
+    private static final String ANSI_YELLOW = "\u001B[33m";
 
     private static GiveAll instance;
     private GiveAllPlaceholderExpansion placeholderExpansion;
+    private GiveAllLogger loggerManager;
 
     public GiveAll() {
         super("Cold-Development", "GiveAll", 23387, null, LocaleManager.class, null);
@@ -43,6 +45,7 @@ public final class GiveAll extends ColdPlugin {
     @Override
     public void enable() {
         instance = this;
+        this.loggerManager = new GiveAllLogger(this);
         getManager(PluginUpdateManager.class);
 
         // Initialize PlaceholderAPI Hook
@@ -75,9 +78,18 @@ public final class GiveAll extends ColdPlugin {
 
     @Override
     public void disable() {
+        if (loggerManager != null && SettingKey.SAVE_GIVEALL_LOGS.get()) {
+            loggerManager.archiveLogs();
+        }
+
         getLogger().info("");
         getLogger().info(ANSI_CHINESE_PURPLE + "GiveAll disabled." + ANSI_RESET);
         getLogger().info("");
+    }
+
+
+    public GiveAllLogger getLoggerManager() {
+        return loggerManager;
     }
 
     @Override
