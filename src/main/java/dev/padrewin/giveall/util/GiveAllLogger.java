@@ -38,10 +38,11 @@ public class GiveAllLogger {
                     for (Map.Entry<String, List<String>> entry : giveLog.entrySet()) {
                         String mainReceiver = entry.getKey();
                         List<String> blockedPlayers = entry.getValue();
+
                         if (blockedPlayers.isEmpty()) {
-                            writer.write(mainReceiver);
+                            writer.write("Received: " + mainReceiver);
                         } else {
-                            writer.write(mainReceiver + " (" + String.join(", ", blockedPlayers) + ")");
+                            writer.write("Received: " + mainReceiver + " (Blocked: " + String.join(", ", blockedPlayers) + ")");
                         }
                         writer.newLine();
                     }
