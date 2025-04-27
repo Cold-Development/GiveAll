@@ -3,6 +3,7 @@ package dev.padrewin.giveall.commands;
 import dev.padrewin.colddev.utils.StringPlaceholders;
 import dev.padrewin.giveall.hook.GiveAllPlaceholderExpansion;
 import dev.padrewin.giveall.setting.SettingKey;
+import dev.padrewin.giveall.util.GiveAllLogger;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -61,6 +62,7 @@ public class GiveCommand extends BaseCommand {
 
         boolean antiFraudEnabled = SettingKey.ANTI_FRAUD_SYSTEM.get();
         Map<String, String> givenIps = new HashMap<>();
+        Map<String, List<String>> giveLog = new LinkedHashMap<>();
 
         for (Player player : players) {
             if (player == senderPlayer) continue;
@@ -72,10 +74,17 @@ public class GiveCommand extends BaseCommand {
                 if (givenIps.containsKey(ip)) {
                     String winnerName = givenIps.get(ip);
                     localeManager.sendMessage(player, "already-received-item", StringPlaceholders.of("player", winnerName));
+
+                    // Add who was blocked
+                    giveLog.computeIfAbsent(winnerName, k -> new ArrayList<>()).add(player.getName());
                     continue;
                 }
 
                 givenIps.put(ip, player.getName());
+                giveLog.put(player.getName(), new ArrayList<>());
+            } else {
+                // If antiFraud disabled, add normal
+                giveLog.put(player.getName(), new ArrayList<>());
             }
 
             player.getInventory().addItem(itemInHand.clone());
@@ -85,6 +94,11 @@ public class GiveCommand extends BaseCommand {
         }
 
         localeManager.sendMessage(senderPlayer, "item-given", StringPlaceholders.of("item", itemName));
+
+        // 📋 Write async log
+        if (SettingKey.SAVE_GIVEALL_LOGS.get()) {
+            plugin.getLoggerManager().log(giveLog);
+        }
 
         // 🕒 Stop the timer and calculate execution duration
         long endTime = System.currentTimeMillis();
