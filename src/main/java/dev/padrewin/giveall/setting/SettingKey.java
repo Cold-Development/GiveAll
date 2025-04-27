@@ -13,6 +13,13 @@ public class SettingKey {
 
     private static final List<ColdSetting<?>> KEYS = new ArrayList<>();
 
+    public static final ColdSetting<Boolean> DEBUG_MODE = create(
+            "debug",
+            BOOLEAN,
+            false,
+            "Enable debug logs in console (errors, warnings)"
+    );
+
     public static final ColdSetting<String> BASE_COMMAND_REDIRECT = create("base-command-redirect", STRING, "", "Which command should we redirect to when using '/giveall' with no subcommand specified?", "You can use a value here such as 'version' to show the output of '/giveall version'", "If you have any aliases defined, do not use them here", "If left as blank, the default behavior of showing '/giveall version' with bypassed permissions will be used");
 
     public static final ColdSetting<Boolean> ANTI_FRAUD_SYSTEM = create(
@@ -21,6 +28,12 @@ public class SettingKey {
             true,
             "If enabled, players sharing the same IP will receive the GiveAll only on the first connected account.",
             "If disabled, all accounts will receive the item regardless of IP."
+    );
+
+    public static final ColdSetting<Boolean> SAVE_GIVEALL_LOGS = create(
+            "save-giveall-logs",
+            BOOLEAN, true,
+            "Enable or disable saving GiveAll executions into a log file."
     );
 
     private static <T> ColdSetting<T> create(String key, ColdSettingSerializer<T> serializer, T defaultValue, String... comments) {
