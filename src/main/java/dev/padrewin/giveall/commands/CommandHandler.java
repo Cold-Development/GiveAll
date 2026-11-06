@@ -15,7 +15,6 @@ import dev.padrewin.giveall.GiveAll;
 import dev.padrewin.giveall.manager.CommandManager;
 import dev.padrewin.giveall.manager.LocaleManager;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -26,6 +25,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.minecart.CommandMinecart;
 import org.bukkit.permissions.Permissible;
 import org.bukkit.util.StringUtil;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 
 /**
  * Abstract class to handle the majority of the logic dealing with commands.
@@ -173,7 +174,7 @@ public abstract class CommandHandler implements TabExecutor, NamedExecutor {
         try {
             subCommand.execute(this.plugin, sender, this.shortenArgs(args));
         } catch (ArrayIndexOutOfBoundsException e) {
-            sender.sendMessage(ChatColor.RED + "A GiveAll error occurred while executing that command. Did you enter an invalid parameter?");
+            sender.sendMessage(Component.text("A GiveAll error occurred while executing that command. Did you enter an invalid parameter?", NamedTextColor.RED));
         }
 
         return true;

@@ -4,7 +4,8 @@ version: '@version@'
 website: 'https://github.com/Cold-Development/GiveAll'
 authors: [ padrewin ]
 api-version: 1.20
-softdepend: [PlaceholderAPI]
+folia-supported: true
+softdepend: [PlaceholderAPI, Nexo]
 
 commands:
   giveall:

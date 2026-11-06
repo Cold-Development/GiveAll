@@ -27,12 +27,12 @@ public class GiveAllPlaceholderExpansion extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getAuthor() {
-        return this.plugin.getDescription().getAuthors().get(0);
+        return this.plugin.getPluginMeta().getAuthors().get(0);
     }
 
     @Override
     public @NotNull String getVersion() {
-        return this.plugin.getDescription().getVersion();
+        return this.plugin.getPluginMeta().getVersion();
     }
 
     @Override

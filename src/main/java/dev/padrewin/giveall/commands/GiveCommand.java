@@ -1,9 +1,11 @@
 package dev.padrewin.giveall.commands;
 
+import dev.padrewin.colddev.scheduler.ColdScheduler;
 import dev.padrewin.colddev.utils.StringPlaceholders;
 import dev.padrewin.giveall.hook.GiveAllPlaceholderExpansion;
 import dev.padrewin.giveall.setting.SettingKey;
 import dev.padrewin.giveall.util.GiveAllLogger;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -51,7 +53,7 @@ public class GiveCommand extends BaseCommand {
             return;
         }
 
-        String itemName = plugin.getItemName(itemInHand);
+        Component itemName = plugin.getItemComponent(itemInHand);
         Collection<? extends Player> players = Bukkit.getOnlinePlayers();
 
         String prefix = localeManager.getLocaleMessage("prefix");
@@ -63,6 +65,9 @@ public class GiveCommand extends BaseCommand {
         boolean antiFraudEnabled = SettingKey.ANTI_FRAUD_SYSTEM.get();
         Map<String, String> givenIps = new HashMap<>();
         Map<String, List<String>> giveLog = new LinkedHashMap<>();
+        ColdScheduler scheduler = plugin.getScheduler();
+        StringPlaceholders giveMessagePlaceholders = StringPlaceholders.builder("player", senderPlayer.getDisplayName())
+                .build();
 
         for (Player player : players) {
             if (player == senderPlayer) continue;
@@ -87,13 +92,15 @@ public class GiveCommand extends BaseCommand {
                 giveLog.put(player.getName(), new ArrayList<>());
             }
 
-            player.getInventory().addItem(itemInHand.clone());
-            localeManager.sendMessage(player, "give-message", StringPlaceholders.builder("item", itemName)
-                    .add("player", senderPlayer.getDisplayName())
-                    .build());
+            // On Folia each player may tick on a different region thread, so their inventory is touched from there
+            ItemStack toGive = itemInHand.clone();
+            scheduler.executeAtEntity(player, () -> {
+                player.getInventory().addItem(toGive);
+                localeManager.sendItemMessage(player, "give-message", giveMessagePlaceholders, itemName);
+            });
         }
 
-        localeManager.sendMessage(senderPlayer, "item-given", StringPlaceholders.of("item", itemName));
+        localeManager.sendItemMessage(senderPlayer, "item-given", StringPlaceholders.empty(), itemName);
 
         // 📋 Write async log
         if (SettingKey.SAVE_GIVEALL_LOGS.get()) {

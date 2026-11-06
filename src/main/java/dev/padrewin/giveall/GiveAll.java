@@ -5,8 +5,10 @@ import dev.padrewin.colddev.config.ColdSetting;
 import dev.padrewin.colddev.manager.Manager;
 import dev.padrewin.colddev.manager.PluginUpdateManager;
 import dev.padrewin.giveall.hook.GiveAllPlaceholderExpansion;
+import dev.padrewin.giveall.hook.NexoHook;
 import dev.padrewin.giveall.util.GiveAllLogger;
 import org.bukkit.Bukkit;
+import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import dev.padrewin.giveall.manager.CommandManager;
@@ -58,15 +60,15 @@ public final class GiveAll extends ColdPlugin {
             getLogger().warning(ANSI_LIGHT_BLUE + "PlaceholderAPI not found. " + ANSI_BOLD + ANSI_RED + "✘" + ANSI_RESET);
         }
 
-        String name = getDescription().getName();
+        String name = getPluginMeta().getName();
         getLogger().info("");
         getLogger().info(ANSI_CHINESE_PURPLE + "  ____ ___  _     ____  " + ANSI_RESET);
         getLogger().info(ANSI_PINK + " / ___/ _ \\| |   |  _ \\ " + ANSI_RESET);
         getLogger().info(ANSI_CHINESE_PURPLE + "| |  | | | | |   | | | |" + ANSI_RESET);
         getLogger().info(ANSI_PINK + "| |__| |_| | |___| |_| |" + ANSI_RESET);
         getLogger().info(ANSI_CHINESE_PURPLE + " \\____\\___/|_____|____/ " + ANSI_RESET);
-        getLogger().info("    " + ANSI_GREEN + name + ANSI_RED + " v" + getDescription().getVersion() + ANSI_RESET);
-        getLogger().info(ANSI_PURPLE + "    Author(s): " + ANSI_PURPLE + getDescription().getAuthors().get(0) + ANSI_RESET);
+        getLogger().info("    " + ANSI_GREEN + name + ANSI_RED + " v" + getPluginMeta().getVersion() + ANSI_RESET);
+        getLogger().info(ANSI_PURPLE + "    Author(s): " + ANSI_PURPLE + getPluginMeta().getAuthors().get(0) + ANSI_RESET);
         getLogger().info(ANSI_AQUA + "    (c) Cold Development ❄" + ANSI_RESET);
         getLogger().info("");
 
@@ -124,12 +126,27 @@ public final class GiveAll extends ColdPlugin {
         return instance;
     }
 
-    public String getItemName(ItemStack item) {
+    /**
+     * The item's name exactly as a player would see it: its custom name (with every colour, font and
+     * glyph it has), a Nexo item name, or the translated vanilla name. Hovering it shows the item.
+     */
+    public Component getItemComponent(ItemStack item) {
+        Component name = null;
         ItemMeta meta = item.getItemMeta();
         if (meta != null && meta.hasDisplayName()) {
-            return meta.getDisplayName();
+            name = meta.displayName();
         }
-        return item.getType().toString().replace("_", " ").toLowerCase();
+
+        // Nexo items name themselves through the item_name component, which is not a display name
+        if (name == null && NexoHook.isEnabled()) {
+            name = NexoHook.itemName(item);
+        }
+
+        if (name == null) {
+            name = Component.translatable(item.getType().translationKey());
+        }
+
+        return name.hoverEvent(item);
     }
 
     public GiveAllPlaceholderExpansion getPlaceholderExpansion() {

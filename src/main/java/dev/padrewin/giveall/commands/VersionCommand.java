@@ -5,14 +5,19 @@ import java.util.List;
 import dev.padrewin.giveall.GiveAll;
 import dev.padrewin.giveall.manager.CommandManager;
 import dev.padrewin.giveall.manager.LocaleManager;
-import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 public class VersionCommand extends BaseCommand {
+
+    private static final LegacyComponentSerializer LEGACY = LegacyComponentSerializer.builder()
+            .character(LegacyComponentSerializer.SECTION_CHAR).hexColors().useUnusualXRepeatedCharacterHexFormat().build();
 
     public VersionCommand() {
         super("version", CommandManager.CommandAliases.VERSION);
@@ -33,9 +38,9 @@ public class VersionCommand extends BaseCommand {
 
         String baseColor = localeManager.getLocaleMessage("base-command-color");
         localeManager.sendCustomMessage(sender, baseColor + "");
-        localeManager.sendCustomMessage(sender, baseColor + "Running <g:#635AA7:#E6D4F8:#9E48F6>GiveAll" + baseColor + " v" + plugin.getDescription().getVersion());
+        localeManager.sendCustomMessage(sender, baseColor + "Running <g:#635AA7:#E6D4F8:#9E48F6>GiveAll" + baseColor + " v" + plugin.getPluginMeta().getVersion());
 
-        List<String> authors = plugin.getDescription().getAuthors();
+        List<String> authors = plugin.getPluginMeta().getAuthors();
         String authorsFormatted = String.join(", ", authors);
 
         localeManager.sendCustomMessage(sender, baseColor + "&7Developer(s): <g:#FF0000:#793434>" + authorsFormatted);
@@ -43,12 +48,10 @@ public class VersionCommand extends BaseCommand {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-            TextComponent baseMessage = new TextComponent(baseColor + "GitHub: ");
-            TextComponent clickableText = new TextComponent(ChatColor.RED + "" + ChatColor.UNDERLINE + "click here");
-            clickableText.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Cold-Development/GiveAll"));
-            baseMessage.addExtra(clickableText);
-
-            player.spigot().sendMessage(baseMessage);
+            Component message = LEGACY.deserialize(baseColor + "GitHub: ")
+                    .append(Component.text("click here", NamedTextColor.RED, TextDecoration.UNDERLINED)
+                            .clickEvent(ClickEvent.openUrl("https://github.com/Cold-Development/GiveAll")));
+            player.sendMessage(message);
 
         } else if (sender instanceof ConsoleCommandSender) {
             String ansiRed = "\u001B[31m";
